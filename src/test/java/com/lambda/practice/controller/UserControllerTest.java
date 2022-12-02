@@ -39,7 +39,7 @@ class UserControllerTest {
     @DisplayName("로그인 성공")
     @WithMockUser
     void login_success() throws Exception {
-
+//service에는 이상이 없다고 가정!
         when(userService.login(any())).thenReturn("token");
 
         mockMvc.perform(post("/api/v1/users/login")
@@ -54,6 +54,7 @@ class UserControllerTest {
     @DisplayName("로그인 실패 userName 없음")
     @WithMockUser
     void login_fail() throws Exception {
+        //service에는 이상이 없다고 가정!
         when(userService.login(any())).thenThrow(new HospitalException(ErrorCode.USERNAME_NOT_FOUND, ""));
 
         mockMvc.perform(post("/api/v1/users/login")
@@ -68,6 +69,7 @@ class UserControllerTest {
     @DisplayName("로그인 실패 password 없음")
     @WithMockUser
     void login_fail1() throws Exception {
+        //service에는 이상이 없다고 가정!
         when(userService.login(any())).thenThrow(new HospitalException(ErrorCode.INVALID_PASSWORD, ""));
 
         mockMvc.perform(post("/api/v1/users/login")
