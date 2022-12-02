@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     //필드값을 생성자로 받아 넣는다.
     DUPLICATE_USER_NAME(HttpStatus.CONFLICT,""),
-    USERNAME_NOT_FOUND(HttpStatus.NOT_FOUND,"");
+    USERNAME_NOT_FOUND(HttpStatus.NOT_FOUND,""),
+    INVALID_PASSWORD(HttpStatus.UNAUTHORIZED, "")
+    ;
 
     //자바의 HttpStatus를 사용한다.
     HttpStatus httpStatus;
