@@ -4,6 +4,7 @@ import com.lambda.practice.domain.dto.UserJoinRequest;
 import com.lambda.practice.domain.dto.UserLoginRequest;
 import com.lambda.practice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,8 +21,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UserLoginRequest userLoginRequest) {
+    public ResponseEntity<String> login(@RequestBody UserLoginRequest userLoginRequest) {
         String token = userService.login(userLoginRequest);
-        return token;
+        return ResponseEntity.ok().body(token);
     }
 }
